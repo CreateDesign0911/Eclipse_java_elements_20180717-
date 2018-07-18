@@ -9,7 +9,7 @@ import java.util.Scanner;
  *手始めにじゃんけんゲームだ。
  * @author 蝶野
  */
-public class Janken {
+public class JankenPM {
 	/**
 	 * ここからコーディング開始
 	 * @param args 20行目は起動時引数というものだが、基本的に使わない。
@@ -77,10 +77,14 @@ public class Janken {
 			//勝敗判定を表示
 			switch (judge(user, comp)) {
 			case 1:{
-				win = win + 1;
+				//++:インクリメント演算子
+				//--:ディクリメント演算子
+				//こういう＝を伴わない単項のみの演算子を単項演算子という。
+				//  ＝を伴うものは二項演算子という。
+				win = win++;
 			}break;
 			case 2:{
-				lose = lose + 1;
+				lose = lose++;
 			}break;
 			case 3:{
 
@@ -96,7 +100,7 @@ public class Janken {
 		//勝負が終わった後で一度だけ勝負回数をポップ。繰り返し処理の｛｝の範囲外なので、ループ中には表れない。
 		System.out.println(count + "回勝負しました。");
 		System.out.println(
-				win + "勝" +
+				win  + "勝" +
 				lose + "敗" +
 				(count - win - lose) + "引き分けでした");
 
@@ -108,11 +112,12 @@ public class Janken {
 	 * @param hand 出した手の番号。
 	 */
 	//新章：メソッドの記述
+	//自作のメソッド
 	//メインのブロックが終わった後にメソッドの定義を書くのがお決まりの展開。
 	//showメソッドというのは、どこかで使われるために準備している。使われるときは、（）の中の数値を用いる。
 	//約束  戻り値の型メソッド名( 因数の方 因数の名前[, …])
 	//あなたとコンピュータで別個に記述していた判定のテンプレ文章を一括化した。
-
+	//
 	public static void show(String one, int hand) {
 		switch (hand) {
 		case 0: {
